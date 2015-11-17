@@ -1,6 +1,7 @@
 import urllib2
+import os
  
-url = "http://elb-h-jolle.de/test/aktuelles/archiv.php/"
+url = "http://elb-h-jolle.de/aktuelles/archiv.php"
 website = urllib2.urlopen(url)
 html = website.read()
 
@@ -18,4 +19,7 @@ while  p1 != -1:
     codes.append(html[p1+4:p2])
     a = p1+4
     
-print codes
+for i in codes:
+#  url = "http://elb-h-jolle.de/aktuelles/ausgabe.php?iid=" + i
+ # os.system('sudo weasyprint ' + url + ' ' + i + '.pdf')
+  os.system('rm '+i+'.pdf')
